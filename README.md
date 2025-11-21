@@ -1,7 +1,5 @@
-# Slicker Carousel - Vanilla JavaScript
+# Slicker Carousel
 **Version 1.9.0** - Vanilla TypeScript rewrite with zero dependencies
-
----
 
 ## About This Version
 
@@ -77,7 +75,10 @@ const slider = Slicker.init('.slider', options);
 ```html
 <script src="dist/slicker.js"></script>
 <script>
-  var slider = Slicker.init('.slider', { dots: true });
+  var slider = Slicker.init('.slider', { 
+    dots: true,
+    arrows: true  // enabled by default
+  });
 </script>
 ```
 

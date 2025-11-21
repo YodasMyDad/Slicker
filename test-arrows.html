@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Arrow Test</title>
+    <link rel="stylesheet" href="dist/slicker.css">
+    <style>
+        body { padding: 50px; font-family: Arial; }
+        .test-slider { 
+            max-width: 600px; 
+            margin: 50px auto; 
+            border: 2px solid #ccc;
+            position: relative;
+        }
+        .slide {
+            background: #ff6b6b;
+            color: white;
+            height: 200px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 48px;
+            font-weight: bold;
+        }
+        .debug {
+            background: #f0f0f0;
+            padding: 20px;
+            margin: 20px auto;
+            max-width: 600px;
+            font-family: monospace;
+            font-size: 12px;
+        }
+        
+        /* Debug: Make arrows very visible */
+        .slick-prev, .slick-next {
+            background: red !important;
+            width: 40px !important;
+            height: 40px !important;
+            z-index: 1000;
+        }
+        .slick-prev:before, .slick-next:before {
+            color: white !important;
+            font-size: 30px !important;
+            opacity: 1 !important;
+        }
+    </style>
+</head>
+<body>
+    <h1>Arrow Debug Test</h1>
+    
+    <div class="test-slider">
+        <div class="slide">1</div>
+        <div class="slide">2</div>
+        <div class="slide">3</div>
+    </div>
+
+    <div class="debug" id="debug"></div>
+
+    <script src="dist/slicker.js"></script>
+    <script>
+        console.log('Slicker available:', typeof Slicker !== 'undefined');
+        
+        var slider = Slicker.init('.test-slider', {
+            arrows: true,
+            dots: true,
+            infinite: true
+        });
+        
+        setTimeout(() => {
+            var slick = slider.getSlick ? slider.getSlick() : slider;
+            var debug = document.getElementById('debug');
+            
+            var prevArrow = document.querySelector('.slick-prev');
+            var nextArrow = document.querySelector('.slick-next');
+            
+            debug.innerHTML = `
+                <strong>Debug Info:</strong><br>
+                arrows option: ${slick.options.arrows}<br>
+                slideCount: ${slick.slideCount}<br>
+                slidesToShow: ${slick.options.slidesToShow}<br>
+                <br>
+                prevArrow element exists: ${!!slick.$prevArrow}<br>
+                nextArrow element exists: ${!!slick.$nextArrow}<br>
+                <br>
+                prevArrow in DOM: ${!!prevArrow}<br>
+                nextArrow in DOM: ${!!nextArrow}<br>
+                <br>
+                ${prevArrow ? 'Prev arrow HTML: ' + prevArrow.outerHTML : 'No prev arrow in DOM'}<br>
+                ${nextArrow ? 'Next arrow HTML: ' + nextArrow.outerHTML : 'No next arrow in DOM'}
+            `;
+        }, 500);
+    </script>
+</body>
+</html>
+

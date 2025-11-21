@@ -180,10 +180,10 @@
       <nav>
         <a href="#single">Single</a>
         <a href="#multiple">Multiple</a>
+        <a href="#arrows">Arrows</a>
         <a href="#responsive">Responsive</a>
         <a href="#center">Center</a>
-        <a href="#sync">Sync</a>
-        <a href="#rtl">RTL</a>
+        <a href="#adaptive">Adaptive</a>
       </nav>
     </div>
   </header>
@@ -192,7 +192,7 @@
     <section class="demo" id="single">
       <div class="section-head">
         <h2>Single Item</h2>
-        <span class="pill">Default settings</span>
+        <span class="pill">Default settings with arrows</span>
       </div>
       <div class="slider single-item">
         <div class="slide">1</div>
@@ -202,7 +202,8 @@
         <div class="slide">5</div>
         <div class="slide">6</div>
       </div>
-      <pre><code class="language-javascript">var single = Slicker.init('.single-item');</code></pre>
+      <pre><code class="language-javascript">// Arrows are enabled by default
+var single = Slicker.init('.single-item');</code></pre>
     </section>
 
     <section class="demo" id="multiple">
@@ -222,9 +223,31 @@
         <div class="slide">9</div>
       </div>
       <pre><code class="language-javascript">var multiple = Slicker.init('.multiple-items', {
+  arrows: false,  // disable arrows
   infinite: true,
   slidesToShow: 3,
   slidesToScroll: 3
+});</code></pre>
+    </section>
+
+    <section class="demo" id="arrows">
+      <div class="section-head">
+        <h2>With Navigation Arrows</h2>
+        <p class="note">Prev/Next buttons (enabled by default)</p>
+      </div>
+      <div class="slider arrows-demo">
+        <div class="slide">1</div>
+        <div class="slide">2</div>
+        <div class="slide">3</div>
+        <div class="slide">4</div>
+        <div class="slide">5</div>
+      </div>
+      <pre><code class="language-javascript">var arrows = Slicker.init('.arrows-demo', {
+  arrows: true,  // enabled by default
+  dots: true,
+  infinite: true,
+  slidesToShow: 1,
+  slidesToScroll: 1
 });</code></pre>
     </section>
 
@@ -238,6 +261,7 @@
         <div class="slide">5</div><div class="slide">6</div><div class="slide">7</div><div class="slide">8</div>
       </div>
       <pre><code class="language-javascript">var responsive = Slicker.init('.responsive-items', {
+  arrows: false,  // disable arrows, use dots only
   dots: true,
   infinite: false,
   speed: 300,
@@ -339,6 +363,7 @@
         <div class="slide">7</div><div class="slide">8</div>
       </div>
       <pre><code class="language-javascript">var center = Slicker.init('.center-mode', {
+  arrows: true,
   centerMode: true,
   centerPadding: '80px',
   slidesToShow: 1,
@@ -538,13 +563,24 @@ instance.unslick();</code></pre>
 
       // Multiple
       Slicker.init('.multiple-items', {
+        arrows: false,
         infinite: true,
         slidesToShow: 3,
         slidesToScroll: 3
       });
 
+      // Arrows demo
+      Slicker.init('.arrows-demo', {
+        arrows: true,
+        dots: true,
+        infinite: true,
+        slidesToShow: 1,
+        slidesToScroll: 1
+      });
+
       // Responsive
       Slicker.init('.responsive-items', {
+        arrows: false,
         dots: true,
         infinite: false,
         speed: 300,
@@ -581,6 +617,7 @@ instance.unslick();</code></pre>
 
       // Center mode
       Slicker.init('.center-mode', {
+        arrows: true,
         centerMode: true,
         centerPadding: '80px',
         slidesToShow: 1,

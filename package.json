@@ -1,0 +1,38 @@
+{
+  "name": "slick-carousel-vanilla",
+  "version": "1.9.0",
+  "description": "Slick carousel rewritten in vanilla TypeScript - no jQuery dependency",
+  "main": "dist/slick.js",
+  "module": "dist/slick.esm.js",
+  "types": "dist/index.d.ts",
+  "files": [
+    "dist",
+    "slick"
+  ],
+  "scripts": {
+    "dev": "vite",
+    "build": "tsc && vite build && npm run build:types",
+    "build:types": "tsc --declaration --emitDeclarationOnly --outDir dist",
+    "preview": "vite preview"
+  },
+  "keywords": [
+    "carousel",
+    "slider",
+    "slick",
+    "vanilla",
+    "typescript",
+    "no-jquery"
+  ],
+  "author": "Ken Wheeler (original), Vanilla rewrite",
+  "license": "MIT",
+  "devDependencies": {
+    "@vitejs/plugin-legacy": "^5.2.0",
+    "terser": "^5.27.0",
+    "typescript": "^5.3.3",
+    "vite": "^5.0.11"
+  },
+  "repository": {
+    "type": "git",
+    "url": "http://github.com/kenwheeler/slick"
+  }
+}

@@ -167,6 +167,12 @@ export class Slick {
   
   // Core methods
   buildRows = function(this: Slick) {
+    // Only build the multi-row structure when explicitly requested.
+    // Leaving single-row sliders untouched preserves inline widths (needed for variableWidth).
+    if (!(this.options.rows > 1 || this.options.slidesPerRow > 1)) {
+      return;
+    }
+
     if (this.options.rows > 0) {
       const slidesPerSection = this.options.slidesPerRow * this.options.rows;
       const originalSlides = DOM.children(this.$slider);

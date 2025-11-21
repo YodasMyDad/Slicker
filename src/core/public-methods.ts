@@ -317,6 +317,11 @@ export function destroy(this: Slick, refresh?: boolean): void {
 export function cleanUpRows(this: Slick): void {
   const _ = this;
   
+  // Only unwrap if multi-row/grid markup was created.
+  if (!(_.options.rows > 1 || _.options.slidesPerRow > 1)) {
+    return;
+  }
+
   if (_.options.rows > 0) {
     const originalSlides = DOM.find(_.$slider, 'div > div > div');
     originalSlides.forEach(slide => {

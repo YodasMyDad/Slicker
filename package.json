@@ -9,10 +9,12 @@
     "dist",
     "slick"
   ],
+  "style": "dist/slicker.css",
   "scripts": {
     "dev": "vite",
-    "build": "tsc && vite build && npm run build:types",
+    "build": "tsc && vite build && npm run build:types && npm run build:css",
     "build:types": "tsc --declaration --emitDeclarationOnly --outDir dist",
+    "build:css": "sass src/slicker.scss dist/slicker.css --style compressed --no-source-map",
     "preview": "vite preview"
   },
   "keywords": [
@@ -27,6 +29,7 @@
   "license": "MIT",
   "devDependencies": {
     "@vitejs/plugin-legacy": "^5.2.0",
+    "sass": "^1.94.2",
     "terser": "^5.27.0",
     "typescript": "^5.3.3",
     "vite": "^5.0.11"

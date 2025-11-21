@@ -242,8 +242,8 @@ export function setDimensions(this: Slick): void {
   }
 
   // Match jQuery's .width()/.height() behavior (content box, exclude padding/border)
-  _.listWidth = Math.ceil(parseFloat(DOM.getCSS(_.$list!, 'width')) || _.$list!.clientWidth);
-  _.listHeight = Math.ceil(parseFloat(DOM.getCSS(_.$list!, 'height')) || _.$list!.clientHeight);
+  _.listWidth = Math.ceil(DOM.width(_.$list!));
+  _.listHeight = Math.ceil(DOM.height(_.$list!));
 
   if (_.options.vertical === false && _.options.variableWidth === false) {
     _.slideWidth = Math.ceil(_.listWidth / _.options.slidesToShow);

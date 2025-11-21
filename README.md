@@ -1,28 +1,25 @@
 # Slicker Carousel - Vanilla JavaScript
-
-_the last carousel you'll ever need - rebranded and rewritten without jQuery_
-
 **Version 1.9.0** - Vanilla TypeScript rewrite with zero dependencies
 
 ---
 
 ## About This Version
 
-Slicker is the modern TypeScript rewrite of Ken Wheeler's Slick carousel. It keeps every feature, removes the jQuery requirement, and ships both ES modules and UMD builds. The original jQuery distribution is preserved untouched in `slick/` (CSS + JS) for legacy projects - everything else in this repo is the Slicker rewrite.
+Slicker is the modern TypeScript rewrite of Ken Wheeler's Slick carousel (Credits and links below). It keeps every feature, removes the jQuery requirement, and ships both ES modules and UMD builds with a single unified CSS file. The original jQuery distribution is preserved untouched in `slick/` (CSS + JS) for legacy projects and reference.
 
 - No dependencies - no jQuery required
 - Modern JavaScript (ES6+) with TypeScript types included
 - Smaller bundles and faster performance via native DOM APIs
-- Same API surface and CSS as the original Slick
+- Single CSS file combining core and theme styles
+- Same API surface as the original Slick
 
 ---
 
 ## Quick Start
 
-### 1. Include CSS (unchanged from the original)
+### 1. Include CSS (single unified stylesheet)
 ```html
-<link rel="stylesheet" href="slick/slick.css">
-<link rel="stylesheet" href="slick/slick-theme.css">
+<link rel="stylesheet" href="dist/slicker.css">
 ```
 
 ### 2. Include JavaScript
@@ -347,9 +344,9 @@ npm run build
 ## Project Structure
 
 ```
-dist/          # Compiled Slicker builds (ESM + UMD + types)
-src/           # TypeScript source for Slicker
-slick/         # Original jQuery Slick distribution (JS + CSS) left intact
+dist/          # Compiled Slicker builds (JS: ESM + UMD, CSS: unified, types: .d.ts)
+src/           # TypeScript source for Slicker (includes slicker.scss)
+slick/         # Original jQuery Slick distribution (JS + CSS) for reference/legacy
 index.html     # Examples and demos
 ```
 

@@ -24,11 +24,19 @@ export default defineConfig({
     rollupOptions: {
       output: {
         exports: 'named',
-        globals: {}
+        globals: {},
+        assetFileNames: 'slicker.css'
       }
     }
   },
   server: {
     open: '/index.html'
+  },
+  css: {
+    preprocessorOptions: {
+      scss: {
+        charset: false
+      }
+    }
   }
 });

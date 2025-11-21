@@ -110,6 +110,56 @@ export function outerHeight(element: HTMLElement, includeMargin = false): number
 }
 
 /**
+ * Get inner width (content box, excluding padding/border) - matches jQuery .width()
+ * This properly handles box-sizing: border-box by subtracting padding/border
+ */
+export function width(element: HTMLElement): number {
+  const style = window.getComputedStyle(element);
+  let width = parseFloat(style.width);
+  
+  if (isNaN(width)) {
+    width = element.clientWidth;
+  }
+  
+  // If box-sizing is border-box, width includes padding and border
+  // We need to subtract them to get the content width (matching jQuery behavior)
+  if (style.boxSizing === 'border-box') {
+    const paddingLeft = parseFloat(style.paddingLeft) || 0;
+    const paddingRight = parseFloat(style.paddingRight) || 0;
+    const borderLeft = parseFloat(style.borderLeftWidth) || 0;
+    const borderRight = parseFloat(style.borderRightWidth) || 0;
+    width = width - paddingLeft - paddingRight - borderLeft - borderRight;
+  }
+  
+  return width;
+}
+
+/**
+ * Get inner height (content box, excluding padding/border) - matches jQuery .height()
+ * This properly handles box-sizing: border-box by subtracting padding/border
+ */
+export function height(element: HTMLElement): number {
+  const style = window.getComputedStyle(element);
+  let height = parseFloat(style.height);
+  
+  if (isNaN(height)) {
+    height = element.clientHeight;
+  }
+  
+  // If box-sizing is border-box, height includes padding and border
+  // We need to subtract them to get the content height (matching jQuery behavior)
+  if (style.boxSizing === 'border-box') {
+    const paddingTop = parseFloat(style.paddingTop) || 0;
+    const paddingBottom = parseFloat(style.paddingBottom) || 0;
+    const borderTop = parseFloat(style.borderTopWidth) || 0;
+    const borderBottom = parseFloat(style.borderBottomWidth) || 0;
+    height = height - paddingTop - paddingBottom - borderTop - borderBottom;
+  }
+  
+  return height;
+}
+
+/**
  * DOM traversal
  */
 export function children(element: HTMLElement, selector?: string): HTMLElement[] {

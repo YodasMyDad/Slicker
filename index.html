@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Slick Carousel Vanilla – Demos</title>
+  <title>Slicker Carousel Vanilla - Demos</title>
   <link rel="stylesheet" href="slick/slick.css">
   <link rel="stylesheet" href="slick/slick-theme.css">
   <style>
@@ -167,7 +167,7 @@
 <body>
   <header>
     <div class="wrap">
-      <h1>slick – the last carousel you'll ever need (vanilla)</h1>
+      <h1>Slicker - the last carousel you'll ever need (vanilla)</h1>
       <nav>
         <a href="#single">Single</a>
         <a href="#multiple">Multiple</a>
@@ -193,7 +193,7 @@
         <div class="slide">5</div>
         <div class="slide">6</div>
       </div>
-      <pre><code class="language-javascript">var single = Slick.init('.single-item');</code></pre>
+      <pre><code class="language-javascript">var single = Slicker.init('.single-item');</code></pre>
     </section>
 
     <section class="demo" id="multiple">
@@ -212,7 +212,7 @@
         <div class="slide">8</div>
         <div class="slide">9</div>
       </div>
-      <pre><code class="language-javascript">var multiple = Slick.init('.multiple-items', {
+      <pre><code class="language-javascript">var multiple = Slicker.init('.multiple-items', {
   infinite: true,
   slidesToShow: 3,
   slidesToScroll: 3
@@ -228,7 +228,7 @@
         <div class="slide">1</div><div class="slide">2</div><div class="slide">3</div><div class="slide">4</div>
         <div class="slide">5</div><div class="slide">6</div><div class="slide">7</div><div class="slide">8</div>
       </div>
-      <pre><code class="language-javascript">var responsive = Slick.init('.responsive-items', {
+      <pre><code class="language-javascript">var responsive = Slicker.init('.responsive-items', {
   dots: true,
   infinite: false,
   speed: 300,
@@ -255,7 +255,7 @@
       <div class="slide" style="width: 250px;">250</div>
       <div class="slide" style="width: 160px;">160</div>
       </div>
-      <pre><code class="language-javascript">var variable = Slick.init('.variable-width', {
+      <pre><code class="language-javascript">var variable = Slicker.init('.variable-width', {
   dots: true,
   infinite: true,
   speed: 300,
@@ -276,7 +276,7 @@
         <div class="slide"><span>3</span><br><small>Check<br/>this out!</small></div>
         <div class="slide"><span>4</span><br><small>Woo!</small></div>
       </div>
-      <pre><code class="language-javascript">var adaptive = Slick.init('.adaptive-height', {
+      <pre><code class="language-javascript">var adaptive = Slicker.init('.adaptive-height', {
   dots: true,
   infinite: true,
   speed: 300,
@@ -306,7 +306,7 @@
         <div class="slide">1</div><div class="slide">2</div><div class="slide">3</div>
         <div class="slide">4</div><div class="slide">5</div><div class="slide">6</div>
       </div>
-      <pre><code class="language-javascript">var center = Slick.init('.center-mode', {
+      <pre><code class="language-javascript">var center = Slicker.init('.center-mode', {
   centerMode: true,
   centerPadding: '60px',
   slidesToShow: 3,
@@ -330,7 +330,7 @@
         <div class="img-slide"><img data-lazy="https://placehold.co/600x400/orange/white?text=Lazy+5" alt=""></div>
       </div>
       <pre><code class="language-javascript">// Put data-lazy on your imgs, leave src off
-var lazy = Slick.init('.lazy-load', {
+var lazy = Slicker.init('.lazy-load', {
   lazyLoad: 'ondemand',
   slidesToShow: 3,
   slidesToScroll: 1
@@ -346,7 +346,7 @@ var lazy = Slick.init('.lazy-load', {
         <div class="slide">1</div><div class="slide">2</div><div class="slide">3</div>
         <div class="slide">4</div><div class="slide">5</div><div class="slide">6</div>
       </div>
-      <pre><code class="language-javascript">var autoplay = Slick.init('.autoplay-slider', {
+      <pre><code class="language-javascript">var autoplay = Slicker.init('.autoplay-slider', {
   slidesToShow: 3,
   slidesToScroll: 1,
   autoplay: true,
@@ -364,7 +364,7 @@ var lazy = Slick.init('.lazy-load', {
         <div class="img-slide"><img src="https://placehold.co/600x400?text=Hello%0AWorld" alt=""></div>
         <div class="img-slide"><img src="https://placehold.co/600x400/transparent/F00?text=Fade+3" alt=""></div>
       </div>
-      <pre><code class="language-javascript">var fade = Slick.init('.fade-slider', {
+      <pre><code class="language-javascript">var fade = Slicker.init('.fade-slider', {
   dots: true,
   infinite: true,
   speed: 500,
@@ -385,7 +385,7 @@ var lazy = Slick.init('.lazy-load', {
         <button class="button js-add-slide">Add Slide</button>
         <button class="button js-remove-slide">Remove Slide</button>
       </div>
-      <pre><code class="language-javascript">var addRemove = Slick.init('.add-remove', {
+      <pre><code class="language-javascript">var addRemove = Slicker.init('.add-remove', {
   slidesToShow: 3,
   slidesToScroll: 3
 });
@@ -415,7 +415,7 @@ document.querySelector('.js-remove-slide').addEventListener('click', function() 
       <div class="buttons">
         <button class="button js-filter">Filter Slides</button>
       </div>
-      <pre><code class="language-javascript">var filtering = Slick.init('.filtering', {
+      <pre><code class="language-javascript">var filtering = Slicker.init('.filtering', {
   slidesToShow: 4,
   slidesToScroll: 4
 });
@@ -447,14 +447,14 @@ document.querySelector('.js-filter').addEventListener('click', function() {
       <div class="slider slider-nav">
         <div class="slide">1</div><div class="slide">2</div><div class="slide">3</div><div class="slide">4</div>
       </div>
-      <pre><code class="language-javascript">var sliderFor = Slick.init('.slider-for', {
+      <pre><code class="language-javascript">var sliderFor = Slicker.init('.slider-for', {
   slidesToShow: 1,
   slidesToScroll: 1,
   arrows: false,
   fade: true,
   asNavFor: '.slider-nav'
 });
-var sliderNav = Slick.init('.slider-nav', {
+var sliderNav = Slicker.init('.slider-nav', {
   slidesToShow: 3,
   slidesToScroll: 1,
   asNavFor: '.slider-for',
@@ -475,7 +475,7 @@ var sliderNav = Slick.init('.slider-nav', {
           <div class="slide">4</div><div class="slide">5</div><div class="slide">6</div>
         </div>
       </div>
-      <pre><code class="language-javascript">var rtl = Slick.init('.rtl-slider', { rtl: true });</code></pre>
+      <pre><code class="language-javascript">var rtl = Slicker.init('.rtl-slider', { rtl: true });</code></pre>
     </section>
 
     <section class="demo" id="destroy">
@@ -484,34 +484,34 @@ var sliderNav = Slick.init('.slider-nav', {
         <p class="note">Unslick example</p>
       </div>
       <pre><code class="language-javascript">// Tear down a slider instance
-var instance = Slick.init('.single-item');
+var instance = Slicker.init('.single-item');
 instance.unslick();</code></pre>
     </section>
   </main>
 
-  <footer>Using the browser-global build: <code>&lt;script src="dist/slick.js"&gt;&lt;/script&gt;</code></footer>
+  <footer>Using the browser-global build: <code>&lt;script src="dist/slicker.js"&gt;&lt;/script&gt;</code></footer>
 
-  <script src="dist/slick.js"></script>
+  <script src="dist/slicker.js"></script>
   <script>
     document.addEventListener('DOMContentLoaded', function() {
-      // Guard: ensure Slick is available
-      if (typeof Slick === 'undefined') {
-        console.error('Slick global not found');
+      // Guard: ensure Slicker is available
+      if (typeof Slicker === 'undefined') {
+        console.error('Slicker global not found');
         return;
       }
 
       // Single
-      Slick.init('.single-item');
+      Slicker.init('.single-item');
 
       // Multiple
-      Slick.init('.multiple-items', {
+      Slicker.init('.multiple-items', {
         infinite: true,
         slidesToShow: 3,
         slidesToScroll: 3
       });
 
       // Responsive
-      Slick.init('.responsive-items', {
+      Slicker.init('.responsive-items', {
         dots: true,
         infinite: false,
         speed: 300,
@@ -525,7 +525,7 @@ instance.unslick();</code></pre>
       });
 
       // Variable width
-      Slick.init('.variable-width', {
+      Slicker.init('.variable-width', {
         dots: true,
         infinite: true,
         speed: 300,
@@ -535,7 +535,7 @@ instance.unslick();</code></pre>
       });
 
       // Adaptive height
-      Slick.init('.adaptive-height', {
+      Slicker.init('.adaptive-height', {
         dots: true,
         infinite: true,
         speed: 300,
@@ -543,11 +543,11 @@ instance.unslick();</code></pre>
         adaptiveHeight: true
       });
 
-      // Data attribute — just initialize
-      Slick.init('.data-attr');
+      // Data attribute - just initialize
+      Slicker.init('.data-attr');
 
       // Center mode
-      Slick.init('.center-mode', {
+      Slicker.init('.center-mode', {
         centerMode: true,
         centerPadding: '60px',
         slidesToShow: 3,
@@ -558,14 +558,14 @@ instance.unslick();</code></pre>
       });
 
       // Lazy load
-      Slick.init('.lazy-load', {
+      Slicker.init('.lazy-load', {
         lazyLoad: 'ondemand',
         slidesToShow: 3,
         slidesToScroll: 1
       });
 
       // Autoplay
-      Slick.init('.autoplay-slider', {
+      Slicker.init('.autoplay-slider', {
         slidesToShow: 3,
         slidesToScroll: 1,
         autoplay: true,
@@ -573,7 +573,7 @@ instance.unslick();</code></pre>
       });
 
       // Fade
-      Slick.init('.fade-slider', {
+      Slicker.init('.fade-slider', {
         dots: true,
         infinite: true,
         speed: 500,
@@ -582,7 +582,7 @@ instance.unslick();</code></pre>
       });
 
       // Add & remove
-      var addRemove = Slick.init('.add-remove', {
+      var addRemove = Slicker.init('.add-remove', {
         slidesToShow: 3,
         slidesToScroll: 3
       });
@@ -597,7 +597,7 @@ instance.unslick();</code></pre>
       });
 
       // Filtering
-      var filtering = Slick.init('.filtering', {
+      var filtering = Slicker.init('.filtering', {
         slidesToShow: 4,
         slidesToScroll: 4
       });
@@ -614,14 +614,14 @@ instance.unslick();</code></pre>
       });
 
       // Syncing
-      Slick.init('.slider-for', {
+      Slicker.init('.slider-for', {
         slidesToShow: 1,
         slidesToScroll: 1,
         arrows: false,
         fade: true,
         asNavFor: '.slider-nav'
       });
-      Slick.init('.slider-nav', {
+      Slicker.init('.slider-nav', {
         slidesToShow: 3,
         slidesToScroll: 1,
         asNavFor: '.slider-for',
@@ -631,7 +631,7 @@ instance.unslick();</code></pre>
       });
 
       // RTL
-      Slick.init('.rtl-slider', { rtl: true });
+      Slicker.init('.rtl-slider', { rtl: true });
     });
   </script>
 </body>

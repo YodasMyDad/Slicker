@@ -1,6 +1,6 @@
-# Slick Carousel - Vanilla JavaScript
+# Slicker Carousel - Vanilla JavaScript
 
-_the last carousel you'll ever need - now without jQuery_
+_the last carousel you'll ever need - rebranded and rewritten without jQuery_
 
 **Version 1.9.0** - Vanilla TypeScript rewrite with zero dependencies
 
@@ -8,25 +8,18 @@ _the last carousel you'll ever need - now without jQuery_
 
 ## About This Version
 
-This is a complete vanilla JavaScript/TypeScript rewrite of the original [Slick Carousel by Ken Wheeler](https://github.com/kenwheeler/slick). It maintains 100% feature parity with the original while removing the jQuery dependency entirely.
+Slicker is the modern TypeScript rewrite of Ken Wheeler's Slick carousel. It keeps every feature, removes the jQuery requirement, and ships both ES modules and UMD builds. The original jQuery distribution is preserved untouched in `slick/` (CSS + JS) for legacy projects - everything else in this repo is the Slicker rewrite.
 
-### Why This Version?
-
-- ✅ **Zero Dependencies** - No jQuery required (saves ~30KB)
-- ✅ **Modern JavaScript** - Written in TypeScript with ES6+
-- ✅ **Smaller Bundle** - 52KB minified (13KB gzipped) vs 82KB+ with jQuery
-- ✅ **Better Performance** - Native DOM APIs are faster
-- ✅ **Full TypeScript Support** - Complete type definitions included
-- ✅ **Same CSS** - Use existing Slick stylesheets unchanged
-- ✅ **Same API** - Nearly identical API, easy migration
-
-**Original Slick by Ken Wheeler** - This project builds upon Ken's excellent work. The original jQuery version is preserved in `slick/slick.js` for reference.
+- No dependencies - no jQuery required
+- Modern JavaScript (ES6+) with TypeScript types included
+- Smaller bundles and faster performance via native DOM APIs
+- Same API surface and CSS as the original Slick
 
 ---
 
 ## Quick Start
 
-### 1. Include CSS
+### 1. Include CSS (unchanged from the original)
 ```html
 <link rel="stylesheet" href="slick/slick.css">
 <link rel="stylesheet" href="slick/slick-theme.css">
@@ -34,8 +27,8 @@ This is a complete vanilla JavaScript/TypeScript rewrite of the original [Slick 
 
 ### 2. Include JavaScript
 ```html
-<!-- Vanilla version (no jQuery needed) -->
-<script src="dist/slick.js"></script>
+<!-- Slicker version (no jQuery needed) -->
+<script src="dist/slicker.js"></script>
 ```
 
 ### 3. Initialize
@@ -47,7 +40,7 @@ This is a complete vanilla JavaScript/TypeScript rewrite of the original [Slick 
 </div>
 
 <script>
-  var slider = Slick.init('.my-slider', {
+  var slider = Slicker.init('.my-slider', {
     dots: true,
     infinite: true,
     speed: 500,
@@ -61,11 +54,11 @@ This is a complete vanilla JavaScript/TypeScript rewrite of the original [Slick 
 
 ## Installation
 
-### ES6 Module
+### ES Module
 ```javascript
-import Slick from './dist/slick.esm.js';
+import Slicker from './dist/slicker.esm.js';
 
-const slider = Slick.init('.slider', {
+const slider = Slicker.init('.slider', {
   dots: true,
   arrows: true
 });
@@ -73,27 +66,27 @@ const slider = Slick.init('.slider', {
 
 ### TypeScript
 ```typescript
-import Slick, { SlickOptions } from './dist/index';
+import Slicker, { SlickerOptions } from './dist';
 
-const options: Partial<SlickOptions> = {
+const options: Partial<SlickerOptions> = {
   dots: true,
   slidesToShow: 3
 };
 
-const slider = Slick.init('.slider', options);
+const slider = Slicker.init('.slider', options);
 ```
 
 ### Browser Global (UMD)
 ```html
-<script src="dist/slick.js"></script>
+<script src="dist/slicker.js"></script>
 <script>
-  var slider = Slick.init('.slider', { dots: true });
+  var slider = Slicker.init('.slider', { dots: true });
 </script>
 ```
 
 ---
 
-## Migration from jQuery Version
+## Migration from jQuery Slick
 
 ### Before (jQuery Slick)
 ```javascript
@@ -108,9 +101,9 @@ $('.slider').on('afterChange', function(event, slick, currentSlide) {
 });
 ```
 
-### After (Vanilla Slick)
+### After (Slicker)
 ```javascript
-var slider = Slick.init('.slider', {
+var slider = Slicker.init('.slider', {
   dots: true,
   arrows: true
 });
@@ -121,13 +114,13 @@ document.querySelector('.slider').addEventListener('afterChange', function(e) {
 });
 ```
 
-**That's it!** All options work exactly the same.
+All original options behave the same; the global name and import paths now use Slicker. The legacy jQuery bundle is still available in `slick/` if you need it.
 
 ---
 
 ## Settings
 
-All original Slick options are supported:
+All original Slick options are supported by Slicker:
 
 Option | Type | Default | Description
 ------ | ---- | ------- | -----------
@@ -185,7 +178,7 @@ zIndex | number | 1000 | Set the zIndex values for slides
 
 ## Events
 
-Events are dispatched as native CustomEvents:
+Events are dispatched as native `CustomEvent`s:
 
 ```javascript
 var sliderElement = document.querySelector('.slider');
@@ -204,9 +197,9 @@ beforeChange | [slick, currentSlide, nextSlide] | Before slide change
 breakpoint | [slick, breakpoint] | After a breakpoint is hit
 destroy | [slick] | When slider is destroyed
 edge | [slick, direction] | Overscrolled in non-infinite mode
-init | [slick] | When Slick initializes
-reInit | [slick] | Every time Slick re-initializes
-setPosition | [slick] | Every time Slick recalculates position
+init | [slick] | When Slicker initializes
+reInit | [slick] | Every time Slicker re-initializes
+setPosition | [slick] | Every time Slicker recalculates position
 swipe | [slick, direction] | After swipe/drag
 lazyLoaded | [slick, image, imageSource] | After image loads lazily
 lazyLoadError | [slick, image, imageSource] | After image fails to load
@@ -215,10 +208,10 @@ lazyLoadError | [slick, image, imageSource] | After image fails to load
 
 ## Methods
 
-Methods are called directly on the Slick instance:
+Methods are called directly on the Slicker instance:
 
 ```javascript
-var slider = Slick.init('.slider', { dots: true });
+var slider = Slicker.init('.slider', { dots: true });
 
 // Navigate
 slider.slickNext();
@@ -252,7 +245,7 @@ slider.unslick();
 ```
 
 Method | Arguments | Description
------- | -------- | -----------
+------ | --------- | -----------
 `slickNext` | - | Go to next slide
 `slickPrev` | - | Go to previous slide
 `slickPause` | - | Pause autoplay
@@ -265,15 +258,15 @@ Method | Arguments | Description
 `slickUnfilter` | - | Remove filter
 `slickGetOption` | option | Get an option value
 `slickSetOption` | option, value, refresh | Set option(s)
-`getSlick` | - | Get Slick instance
-`unslick` | - | Destroy Slick
+`getSlick` | - | Get Slicker instance
+`unslick` | - | Destroy Slicker
 
 ---
 
 ## Responsive Example
 
 ```javascript
-Slick.init('.slider', {
+Slicker.init('.slider', {
   slidesToShow: 4,
   slidesToScroll: 1,
   responsive: [
@@ -306,11 +299,11 @@ Slick.init('.slider', {
 
 ## Browser Support
 
-- ✅ Chrome (latest)
-- ✅ Firefox (latest)
-- ✅ Safari (latest)
-- ✅ Edge (latest)
-- ⚠️ IE11 (requires polyfills for Object.entries, etc.)
+- Chrome (latest)
+- Firefox (latest)
+- Safari (latest)
+- Edge (latest)
+- IE11 (requires polyfills for `Object.entries`, etc.)
 
 ---
 
@@ -327,8 +320,8 @@ npm run dev
 npm run build
 
 # Output files:
-# - dist/slick.js (UMD, minified, 52KB)
-# - dist/slick.esm.js (ES Module, 95KB)
+# - dist/slicker.js (UMD, minified)
+# - dist/slicker.esm.js (ES Module)
 # - dist/**/*.d.ts (TypeScript definitions)
 ```
 
@@ -337,17 +330,16 @@ npm run build
 ## What's Different?
 
 ### Breaking Changes (Minor)
-1. **Initialization**: Use `Slick.init()` or `new Slick()` instead of jQuery plugin
-2. **Events**: Use native `addEventListener` instead of jQuery `.on()`
-3. **Event Data**: Event details are in `e.detail` array instead of callback parameters
-4. **No Method Chaining**: Store the instance to call methods
+1. Initialization uses `Slicker.init()` or `new Slicker()` instead of the jQuery plugin.
+2. Events are native `addEventListener` instead of jQuery `.on()`.
+3. Event details are in `e.detail` arrays instead of callback parameters.
+4. No jQuery method chaining - store the instance to call methods.
 
 ### Improvements
-- No jQuery dependency (30KB savings)
-- Modern ES6+ code
+- No jQuery dependency (smaller and faster)
+- Modern ES6+ code and tree-shakeable modules
 - Full TypeScript support
 - Better performance with native APIs
-- Tree-shakeable ES modules
 - Smaller bundle size
 
 ---
@@ -355,21 +347,10 @@ npm run build
 ## Project Structure
 
 ```
-slick/
-├── dist/              # Compiled JavaScript (use these)
-│   ├── slick.js      # UMD build (52KB minified)
-│   ├── slick.esm.js  # ES Module (95KB)
-│   └── **/*.d.ts     # TypeScript definitions
-├── src/               # TypeScript source
-│   ├── core/         # Core functionality
-│   ├── modules/      # Feature modules
-│   ├── utils/        # Utilities
-│   └── types/        # Type definitions
-├── slick/             # Original jQuery version + CSS
-│   ├── slick.js      # Original (for reference)
-│   ├── slick.css     # Core styles (use this)
-│   └── slick-theme.css # Default theme (use this)
-└── index.html         # Examples
+dist/          # Compiled Slicker builds (ESM + UMD + types)
+src/           # TypeScript source for Slicker
+slick/         # Original jQuery Slick distribution (JS + CSS) left intact
+index.html     # Examples and demos
 ```
 
 ---
@@ -379,15 +360,14 @@ slick/
 ### Original Slick Carousel
 **Created by**: [Ken Wheeler](https://github.com/kenwheeler)  
 **Original Repository**: https://github.com/kenwheeler/slick  
-**License**: MIT
+**License**: MIT  
 
-Ken's original Slick carousel revolutionized web carousels with its feature-rich, accessible approach. This vanilla rewrite preserves his vision while modernizing the codebase.
+Ken's original Slick carousel revolutionized web carousels with its feature-rich, accessible approach. The Slicker rewrite preserves his vision while modernizing the codebase. The untouched original files remain in `slick/` for reference and legacy use.
 
-### Vanilla TypeScript Rewrite
+### Slicker TypeScript Rewrite
 **Rewritten in**: TypeScript/Vanilla JavaScript  
 **Version**: 1.9.0  
 **Changes**: Removed jQuery dependency, added TypeScript support, modernized architecture  
-**Original jQuery version**: Preserved in `slick/slick.js` for reference
 
 ---
 
@@ -396,7 +376,7 @@ Ken's original Slick carousel revolutionized web carousels with its feature-rich
 MIT License
 
 Copyright (c) 2017 Ken Wheeler  
-Copyright (c) 2025 Vanilla TypeScript Rewrite
+Copyright (c) 2025 Vanilla TypeScript Rewrite  
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal
@@ -418,4 +398,4 @@ SOFTWARE.
 
 ---
 
-**Free as in Bacon.** 🥓
+**Free as in Bacon.**

@@ -1,5 +1,5 @@
 /**
- * Slick Carousel TypeScript Definitions
+ * Slicker Carousel TypeScript Definitions
  * Vanilla JS rewrite - no jQuery dependency
  */
 
@@ -193,4 +193,13 @@ export type SlickConstructor = {
   new (element: HTMLElement, options?: Partial<SlickOptions>): SlickInstance;
   init(selector: string | HTMLElement, options?: Partial<SlickOptions>): SlickInstance | SlickInstance[];
 };
+
+// Slicker-branded aliases for the rewritten library
+export type SlickerOptions = SlickOptions;
+export type SlickerState = SlickState;
+export type SlickerBreakpointSettings = SlickBreakpointSettings;
+export type SlickerInstance = SlickInstance;
+export type SlickerEvent = SlickEvent;
+export type SlickerEventHandler = SlickEventHandler;
+export type SlickerConstructor = SlickConstructor;
 

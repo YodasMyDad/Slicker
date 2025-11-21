@@ -1,6 +1,6 @@
 /**
- * Slick Carousel - Vanilla TypeScript
- * Main entry point
+ * Slicker Carousel - Vanilla TypeScript
+ * Main entry point for the Slicker rewrite
  */
 
 import { Slick as SlickClass } from './core/SlickComplete';
@@ -9,10 +9,10 @@ import * as DOM from './utils/dom';
 
 // Export types
 export * from './types';
-export { SlickClass as Slick };
+export { SlickClass as SlickCore };
 
 /**
- * Helper function to initialize Slick on element(s)
+ * Helper function to initialize Slicker on element(s)
  * Mimics jQuery plugin behavior
  */
 function init(selector: string | HTMLElement, options?: Partial<SlickOptions>): SlickClass | SlickClass[] {
@@ -21,9 +21,10 @@ function init(selector: string | HTMLElement, options?: Partial<SlickOptions>): 
     [selector];
   
   const instances = elements.map(element => {
-    // Store instance on element
+    // Store instance on element for both new and legacy names
     const instance = new SlickClass(element, options);
-    (element as any).slick = instance;
+    (element as any).slicker = instance;
+    (element as any).slick = (element as any).slick || instance;
     return instance;
   });
   
@@ -31,13 +32,18 @@ function init(selector: string | HTMLElement, options?: Partial<SlickOptions>): 
 }
 
 // Create the main export object with both constructor and helper
-const Slick = Object.assign(SlickClass, { init });
+const Slicker = Object.assign(SlickClass, { init });
+
+// Expose both named and default exports
+export { Slicker };
+export { Slicker as Slick }; // Legacy alias for compatibility
 
 // Default export
-export default Slick;
+export default Slicker;
 
 // For UMD/browser global
 if (typeof window !== 'undefined') {
-  (window as any).Slick = Slick;
+  (window as any).Slicker = Slicker;
+  (window as any).Slick = (window as any).Slick || Slicker;
 }
 

@@ -107,8 +107,11 @@ export function initDotEvents(this: Slick): void {
   if (_.options.dots === true && _.slideCount! > _.options.slidesToShow) {
     EventManager.delegate(_.$dots!, 'click.slick', 'li', (event, target) => {
       event.preventDefault();
-      const index = DOM.index(target);
-      (event as any).data = { message: 'index', index };
+      // Each dot represents a full "page" jump, so map the dot index to the
+      // correct slide index based on slidesToScroll (mirrors jQuery Slick).
+      const pageIndex = DOM.index(target);
+      const slideIndex = pageIndex * _.options.slidesToScroll;
+      (event as any).data = { message: 'index', index: slideIndex };
       _.boundChangeSlide(event);
     });
     

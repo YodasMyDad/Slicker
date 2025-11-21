@@ -10,12 +10,12 @@ export default defineConfig({
   build: {
     lib: {
       entry: path.resolve(__dirname, 'src/index.ts'),
-      name: 'Slick',
+      name: 'Slicker',
       formats: ['es', 'umd'],
       fileName: (format) => {
-        if (format === 'es') return 'slick.esm.js';
-        if (format === 'umd') return 'slick.js';
-        return `slick.${format}.js`;
+        if (format === 'es') return 'slicker.esm.js';
+        if (format === 'umd') return 'slicker.js';
+        return `slicker.${format}.js`;
       }
     },
     outDir: 'dist',
@@ -32,4 +32,3 @@ export default defineConfig({
     open: '/index.html'
   }
 });
-

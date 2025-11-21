@@ -1,5 +1,5 @@
 /**
- * Complete Slick Carousel Class
+ * Complete Slicker Carousel class (Slick-compatible)
  * Imports all modules and methods
  */
 
@@ -105,7 +105,8 @@ export class Slick {
     this.instanceUid = instanceUid++;
     this.htmlExpr = /^(?:\s*(<[\w\W]+>)[^>]*)$/;
     
-    const dataSettings = DOM.getData(element, 'slick') || {};
+    // Prefer Slicker-branded settings while keeping legacy data for compatibility
+    const dataSettings = DOM.getData(element, 'slicker') || DOM.getData(element, 'slick') || {};
     this.options = { ...this.defaults, ...settings, ...dataSettings };
     
     if (this.options.appendArrows == null) {

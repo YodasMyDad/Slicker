@@ -144,6 +144,10 @@ export class Slick {
   // Assign all methods from modules
   init = function(this: Slick, creation?: boolean) {
     this.isInitializing = true;
+    // Responsive refresh calls destroy(true) before init; make sure the new
+    // instance starts as a live slider again.
+    this.unslicked = false;
+    this.animating = false;
     
     if (!DOM.hasClass(this.$slider, 'slick-initialized')) {
       DOM.addClass(this.$slider, 'slick-initialized');

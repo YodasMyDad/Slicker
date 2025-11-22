@@ -374,7 +374,7 @@ Ken's original Slick carousel revolutionized web carousels with its feature-rich
 MIT License
 
 Copyright (c) 2017 Ken Wheeler  
-Copyright (c) 2025 Vanilla TypeScript Rewrite  
+Copyright (c) 2025 Lee Messenger 
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

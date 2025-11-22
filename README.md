@@ -3,7 +3,7 @@
 
 ## About This Version
 
-Slicker is the modern TypeScript rewrite of Ken Wheeler's Slick carousel (Credits and links below). It keeps every feature, removes the jQuery requirement, and ships both ES modules and UMD builds with a single unified CSS file. The original jQuery distribution is preserved untouched in `slick/` (CSS + JS) for legacy projects and reference.
+Slicker is the modern TypeScript rewrite of Ken Wheeler's Slick carousel (Credits and links below). It keeps every feature, removes the jQuery requirement, and ships both ES modules and UMD builds with a single unified CSS file.
 
 - No dependencies - no jQuery required
 - Modern JavaScript (ES6+) with TypeScript types included
@@ -49,6 +49,17 @@ Slicker is the modern TypeScript rewrite of Ken Wheeler's Slick carousel (Credit
 
 ## Installation
 
+### Browser Global (UMD)
+```html
+<script src="dist/slicker.js"></script>
+<script>
+  var slider = Slicker.init('.slider', { 
+    dots: true,
+    arrows: true  // enabled by default
+  });
+</script>
+```
+
 ### ES Module
 ```javascript
 import Slicker from './dist/slicker.esm.js';
@@ -70,18 +81,6 @@ const options: Partial<SlickerOptions> = {
 
 const slider = Slicker.init('.slider', options);
 ```
-
-### Browser Global (UMD)
-```html
-<script src="dist/slicker.js"></script>
-<script>
-  var slider = Slicker.init('.slider', { 
-    dots: true,
-    arrows: true  // enabled by default
-  });
-</script>
-```
-
 ---
 
 ## Migration from jQuery Slick
@@ -323,16 +322,6 @@ npm run build
 # - dist/**/*.d.ts (TypeScript definitions)
 ```
 
----
-
-## What's Different?
-
-### Breaking Changes (Minor)
-1. Initialization uses `Slicker.init()` or `new Slicker()` instead of the jQuery plugin.
-2. Events are native `addEventListener` instead of jQuery `.on()`.
-3. Event details are in `e.detail` arrays instead of callback parameters.
-4. No jQuery method chaining - store the instance to call methods.
-
 ### Improvements
 - No jQuery dependency (smaller and faster)
 - Modern ES6+ code and tree-shakeable modules
@@ -362,11 +351,6 @@ index.html     # Examples and demos
 
 Ken's original Slick carousel revolutionized web carousels with its feature-rich, accessible approach. The Slicker rewrite preserves his vision while modernizing the codebase. The untouched original files remain in `slick/` for reference and legacy use.
 
-### Slicker TypeScript Rewrite
-**Rewritten in**: TypeScript/Vanilla JavaScript  
-**Version**: 1.0.0  
-**Changes**: Removed jQuery dependency, added TypeScript support, modernized architecture  
-
 ---
 
 ## License
@@ -394,6 +378,3 @@ LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
 
----
-
-**Free as in Bacon.**

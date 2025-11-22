@@ -13,6 +13,11 @@ import { EventManager } from './events';
 export function checkResponsive(this: Slick, initial?: boolean, forceUpdate?: boolean): void {
   const _ = this;
   
+  // Prevent nested responsive changes during a responsive refresh cycle
+  if (_.inResponsiveRefresh) {
+    return;
+  }
+  
   const sliderWidth = _.$slider.offsetWidth;
   const windowWidth = window.innerWidth || document.documentElement.clientWidth;
   
@@ -64,7 +69,16 @@ export function checkResponsive(this: Slick, initial?: boolean, forceUpdate?: bo
               _.currentSlide = _.options.initialSlide;
             }
             
-            _.refresh(initial);
+            if (initial === true) {
+              _.inResponsiveRefresh = true;
+              _.refresh(initial);
+              _.inResponsiveRefresh = false;
+            } else {
+              _.inResponsiveRefresh = true;
+              _.unload();
+              _.reinit();
+              _.inResponsiveRefresh = false;
+            }
           }
           
           EventManager.trigger(_.$slider, 'breakpoint', [_, targetBreakpoint]);
@@ -72,21 +86,30 @@ export function checkResponsive(this: Slick, initial?: boolean, forceUpdate?: bo
       } else {
         _.activeBreakpoint = targetBreakpoint;
         
-        const breakpointSettings = _.breakpointSettings[targetBreakpoint];
-        if (breakpointSettings === 'unslick') {
-          _.unslick(targetBreakpoint);
-        } else {
-          _.options = {
-            ..._.originalSettings,
-            ...(breakpointSettings as Partial<SlickOptions>)
-          } as SlickOptions;
-          
-          if (initial === true) {
-            _.currentSlide = _.options.initialSlide;
+          const breakpointSettings = _.breakpointSettings[targetBreakpoint];
+          if (breakpointSettings === 'unslick') {
+            _.unslick(targetBreakpoint);
+          } else {
+            _.options = {
+              ..._.originalSettings,
+              ...(breakpointSettings as Partial<SlickOptions>)
+            } as SlickOptions;
+            
+            if (initial === true) {
+              _.currentSlide = _.options.initialSlide;
+            }
+            
+            if (initial === true) {
+              _.inResponsiveRefresh = true;
+              _.refresh(initial);
+              _.inResponsiveRefresh = false;
+            } else {
+              _.inResponsiveRefresh = true;
+              _.unload();
+              _.reinit();
+              _.inResponsiveRefresh = false;
+            }
           }
-          
-          _.refresh(initial);
-        }
         
         EventManager.trigger(_.$slider, 'breakpoint', [_, targetBreakpoint]);
       }
@@ -99,7 +122,16 @@ export function checkResponsive(this: Slick, initial?: boolean, forceUpdate?: bo
           _.currentSlide = _.options.initialSlide;
         }
         
-        _.refresh(initial);
+        if (initial === true) {
+          _.inResponsiveRefresh = true;
+          _.refresh(initial);
+          _.inResponsiveRefresh = false;
+        } else {
+          _.inResponsiveRefresh = true;
+          _.unload();
+          _.reinit();
+          _.inResponsiveRefresh = false;
+        }
         EventManager.trigger(_.$slider, 'breakpoint', [_, targetBreakpoint]);
       }
     }

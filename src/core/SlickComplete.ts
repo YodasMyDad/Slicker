@@ -79,6 +79,8 @@ export class Slick {
   public windowTimer: number | null = null;
   public instanceUid: number = 0;
   public htmlExpr: RegExp = /^(?:\s*(<[\w\W]+>)[^>]*)$/;
+  public isInitializing: boolean = false;
+  public inResponsiveRefresh: boolean = false;
   
   // Bound methods - public so they can be accessed by event handlers
   public boundAutoPlay!: () => void;
@@ -141,6 +143,8 @@ export class Slick {
   
   // Assign all methods from modules
   init = function(this: Slick, creation?: boolean) {
+    this.isInitializing = true;
+    
     if (!DOM.hasClass(this.$slider, 'slick-initialized')) {
       DOM.addClass(this.$slider, 'slick-initialized');
       this.buildRows();
@@ -164,6 +168,8 @@ export class Slick {
       this.paused = false;
       this.autoPlay();
     }
+    
+    this.isInitializing = false;
   };
   
   // Core methods

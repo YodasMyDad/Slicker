@@ -1,6 +1,6 @@
 {
   "name": "slicker",
-  "version": "1.9.0",
+  "version": "1.0.0",
   "description": "Slicker carousel rewritten from Slick in vanilla TypeScript - no jQuery dependency",
   "main": "dist/slicker.js",
   "module": "dist/slicker.esm.js",

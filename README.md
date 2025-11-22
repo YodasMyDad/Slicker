@@ -1,5 +1,5 @@
 # Slicker Carousel
-**Version 1.9.0** - Vanilla TypeScript rewrite with zero dependencies
+**Version 1.0.0** - Vanilla TypeScript rewrite with zero dependencies
 
 ## About This Version
 
@@ -364,7 +364,7 @@ Ken's original Slick carousel revolutionized web carousels with its feature-rich
 
 ### Slicker TypeScript Rewrite
 **Rewritten in**: TypeScript/Vanilla JavaScript  
-**Version**: 1.9.0  
+**Version**: 1.0.0  
 **Changes**: Removed jQuery dependency, added TypeScript support, modernized architecture  
 
 ---

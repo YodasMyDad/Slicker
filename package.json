@@ -1,6 +1,6 @@
 {
   "name": "@yodasmydad/slicker",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Slicker carousel rewritten from Slick in vanilla TypeScript - no jQuery dependency",
   "main": "slicker.js",
   "module": "slicker.esm.js",

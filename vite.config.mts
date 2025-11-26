@@ -18,7 +18,7 @@ export default defineConfig({
         return `slicker.${format}.js`;
       }
     },
-    outDir: 'dist',
+    outDir: '.',
     sourcemap: true,
     minify: 'terser',
     rollupOptions: {

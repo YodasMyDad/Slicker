@@ -1,20 +1,25 @@
 {
-  "name": "slicker",
+  "name": "@yodasmydad/slicker",
   "version": "1.0.0",
   "description": "Slicker carousel rewritten from Slick in vanilla TypeScript - no jQuery dependency",
-  "main": "dist/slicker.js",
-  "module": "dist/slicker.esm.js",
-  "types": "dist/index.d.ts",
+  "main": "slicker.js",
+  "module": "slicker.esm.js",
+  "types": "index.d.ts",
   "files": [
-    "dist",
+    "slicker.js",
+    "slicker.js.map",
+    "slicker.esm.js",
+    "slicker.esm.js.map",
+    "slicker.css",
+    "index.d.ts",
     "slick"
   ],
-  "style": "dist/slicker.css",
+  "style": "slicker.css",
   "scripts": {
     "dev": "vite",
     "build": "tsc && vite build && npm run build:types && npm run build:css",
-    "build:types": "tsc --declaration --emitDeclarationOnly --outDir dist",
-    "build:css": "sass src/slicker.scss dist/slicker.css --style compressed --no-source-map",
+    "build:types": "tsc --declaration --emitDeclarationOnly --outDir .",
+    "build:css": "sass src/slicker.scss slicker.css --style compressed --no-source-map",
     "preview": "vite preview"
   },
   "keywords": [
@@ -25,7 +30,7 @@
     "typescript",
     "no-jquery"
   ],
-  "author": "Ken Wheeler (original), Vanilla rewrite",
+  "author": "Lee Messenger",
   "license": "MIT",
   "devDependencies": {
     "@vitejs/plugin-legacy": "^5.2.0",
@@ -36,6 +41,6 @@
   },
   "repository": {
     "type": "git",
-    "url": "http://github.com/kenwheeler/slick"
+    "url": "https://github.com/YodasMyDad/Slicker"
   }
 }

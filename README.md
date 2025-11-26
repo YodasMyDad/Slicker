@@ -17,13 +17,12 @@ Slicker is the modern TypeScript rewrite of Ken Wheeler's Slick carousel (Credit
 
 ### 1. Include CSS (single unified stylesheet)
 ```html
-<link rel="stylesheet" href="dist/slicker.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@yodasmydad/slicker@1.0.0/slicker.css">
 ```
 
 ### 2. Include JavaScript
 ```html
-<!-- Slicker version (no jQuery needed) -->
-<script src="dist/slicker.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@yodasmydad/slicker@1.0.0/slicker.js"></script>
 ```
 
 ### 3. Initialize
@@ -49,20 +48,26 @@ Slicker is the modern TypeScript rewrite of Ken Wheeler's Slick carousel (Credit
 
 ## Installation
 
-### Browser Global (UMD)
+### CDN (Recommended)
 ```html
-<script src="dist/slicker.js"></script>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@yodasmydad/slicker@1.0.0/slicker.css">
+<script src="https://cdn.jsdelivr.net/npm/@yodasmydad/slicker@1.0.0/slicker.js"></script>
 <script>
-  var slider = Slicker.init('.slider', { 
+  var slider = Slicker.init('.slider', {
     dots: true,
     arrows: true  // enabled by default
   });
 </script>
 ```
 
+### npm
+```bash
+npm install @yodasmydad/slicker
+```
+
 ### ES Module
 ```javascript
-import Slicker from './dist/slicker.esm.js';
+import Slicker from '@yodasmydad/slicker';
 
 const slider = Slicker.init('.slider', {
   dots: true,
@@ -72,7 +77,7 @@ const slider = Slicker.init('.slider', {
 
 ### TypeScript
 ```typescript
-import Slicker, { SlickerOptions } from './dist';
+import Slicker, { SlickerOptions } from '@yodasmydad/slicker';
 
 const options: Partial<SlickerOptions> = {
   dots: true,
@@ -317,9 +322,10 @@ npm run dev
 npm run build
 
 # Output files:
-# - dist/slicker.js (UMD, minified)
-# - dist/slicker.esm.js (ES Module)
-# - dist/**/*.d.ts (TypeScript definitions)
+# - slicker.js (UMD, minified)
+# - slicker.esm.js (ES Module)
+# - slicker.css (styles)
+# - index.d.ts (TypeScript definitions)
 ```
 
 ### Improvements
@@ -334,10 +340,13 @@ npm run build
 ## Project Structure
 
 ```
-dist/          # Compiled Slicker builds (JS: ESM + UMD, CSS: unified, types: .d.ts)
-src/           # TypeScript source for Slicker (includes slicker.scss)
-slick/         # Original jQuery Slick distribution (JS + CSS) for reference/legacy
-index.html     # Examples and demos
+slicker.js       # UMD build (minified)
+slicker.esm.js   # ES Module build
+slicker.css      # Unified stylesheet
+index.d.ts       # TypeScript definitions
+src/             # TypeScript source (includes slicker.scss)
+slick/           # Original jQuery Slick distribution for reference/legacy
+index.html       # Examples and demos
 ```
 
 ---

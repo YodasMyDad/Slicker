@@ -27,10 +27,12 @@
     position: absolute;
     top: 50%;
 
-    display: block;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 
-    width: 20px;
-    height: 20px;
+    width: 44px;
+    height: 44px;
     padding: 0;
     -webkit-transform: translate(0, -50%);
     -ms-transform: translate(0, -50%);
@@ -41,7 +43,10 @@
     color: transparent;
     border: none;
     outline: none;
-    background: transparent;
+    background: #fff;
+    border-radius: 50%;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
 }
 .slick-prev:hover,
 .slick-prev:focus,
@@ -50,7 +55,9 @@
 {
     color: transparent;
     outline: none;
-    background: transparent;
+    background: #fff;
+    transform: translate(0, -50%) scale(1.05);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
 }
 .slick-prev:hover:before,
 .slick-prev:focus:before,
@@ -59,57 +66,71 @@
 {
     opacity: 1;
 }
-.slick-prev.slick-disabled:before,
-.slick-next.slick-disabled:before
+.slick-prev.slick-disabled,
+.slick-next.slick-disabled
 {
-    opacity: .25;
+    opacity: .5;
+    cursor: default;
+}
+.slick-prev.slick-disabled:hover,
+.slick-next.slick-disabled:hover
+{
+    transform: translate(0, -50%);
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
 }
 
 .slick-prev:before,
 .slick-next:before
 {
-    font-family: 'slick';
-    font-size: 20px;
-    line-height: 1;
-
-    opacity: .75;
-    color: white;
+    content: '';
+    display: block;
+    width: 10px;
+    height: 10px;
+    border-right: 2px solid #333;
+    border-bottom: 2px solid #333;
+    opacity: 1;
 }
 
 .slick-prev
 {
-    left: -25px;
-}
-[dir='rtl'] .slick-prev
-{
-    right: -25px;
-    left: auto;
+    left: 10px;
 }
 .slick-prev:before
 {
-    content: '←';
+    transform: rotate(135deg);
+    margin-left: 3px;
+}
+[dir='rtl'] .slick-prev
+{
+    right: 10px;
+    left: auto;
 }
 [dir='rtl'] .slick-prev:before
 {
-    content: '→';
+    transform: rotate(-45deg);
+    margin-left: 0;
+    margin-right: 3px;
 }
 
 .slick-next
 {
-    right: -25px;
+    right: 10px;
+}
+.slick-next:before
+{
+    transform: rotate(-45deg);
+    margin-right: 3px;
 }
 [dir='rtl'] .slick-next
 {
     right: auto;
-    left: -25px;
-}
-.slick-next:before
-{
-    content: '→';
+    left: 10px;
 }
 [dir='rtl'] .slick-next:before
 {
-    content: '←';
+    transform: rotate(135deg);
+    margin-right: 0;
+    margin-left: 3px;
 }
 
 /* Dots */
